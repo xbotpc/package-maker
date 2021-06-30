@@ -1,0 +1,51 @@
+@import '../../styles/common.scss';
+
+.container {
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+    position        : relative;
+    box-shadow      : 0px 5px 9px 3px #716f6fb3;;
+    border-radius   : 8px;
+    height          : 35px;
+    font-family     : inherit;
+    background-color: white;
+
+    img {
+        position: absolute;
+        right   : 3px;
+        cursor  : pointer;
+    }
+
+    .optionsContainer {
+        position        : absolute;
+        z-index         : 2;
+        background-color: white;
+        height          : max-content;
+        width           : 100%;
+        box-shadow      : 0 5px 6px 3px #716f6fb3;
+        border-radius   : 0 0 8px 8px;
+        top             : 35px;
+
+        ul {
+            @include inviUL;
+            @include inviScroll;
+            max-height: 200px;
+
+            li {
+                padding       : 0 8px;
+                padding-bottom: 7px;
+                overflow      : hidden;
+                @include pointer;
+
+                &:hover {
+                    background-color: #f0f0f0;
+
+                    button {
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+}

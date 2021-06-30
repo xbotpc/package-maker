@@ -1,0 +1,157 @@
+@import '../../styles/common.scss';
+
+.split {
+  background-color: #838383;
+  height          : 100vh;
+  width           : 100vw;
+  display         : flex;
+  padding         : 2rem;
+  gap             : 50px;
+
+  section {
+    flex         : 0.3;
+    background   : white;
+    border-radius: 8px;
+    padding      : 0.7em;
+    overflow-y   : scroll;
+    @include inviScroll;
+
+    h1 {
+      font-family            : 'Staatliches', cursive;
+      font-size              : 4em;
+      background             : linear-gradient(90deg, rgb(207, 23, 23) 0%, rgba(9, 9, 121, 0.85) 70%, rgba(0, 212, 255, 0.8519608527004552) 100%);
+      background-clip        : text;
+      -webkit-text-fill-color: transparent;
+      width                  : min-content;
+    }
+
+    .container {
+      background-color: white;
+      overflow        : hidden;
+      margin-bottom   : 20px;
+      border-radius   : 6px;
+      border          : 1px solid #efefef;
+
+      &.noBorder {
+        border: none;
+
+        .formEntry {
+          padding-top: 10px;
+        }
+      }
+
+      .drawer {
+        background-color     : white;
+        width                : 100%;
+        height               : 35px;
+        border-radius        : 8px;
+        display              : grid;
+        align-items          : center;
+        justify-content      : center;
+        grid-template-columns: 1fr min-content;
+        border-bottom        : 1px solid #a3a3a3;
+        text-align           : left;
+        padding-left         : 2%;
+        font-size            : 16px;
+
+        svg {
+          width : 30px;
+          height: 30px;
+        }
+      }
+
+      .formEntry {
+        position     : relative;
+        margin-bottom: 10px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        &.active {
+          label {
+            transform: scale(0.9) translateY(-22px);
+            color    : #3a91d8;
+          }
+
+          input {
+            border-color: blue;
+          }
+        }
+
+        label {
+          position   : absolute;
+          line-height: 20px;
+          background : white;
+          margin-left: 12px;
+          color      : #dbdbdb;
+        }
+
+        input {
+          border       : 2px solid #8d8c8c;
+          border-radius: 6px;
+          width        : 100%;
+          height       : 35px;
+          padding-left : 12px;
+        }
+      }
+
+      .checkBox {
+        label {
+          font-size: 1.5em;
+        }
+      }
+
+      .details {
+        display              : grid;
+        gap                  : 5px;
+        padding              : 0.8rem;
+        grid-template-columns: 14% 1fr;
+        grid-template-rows   : 1fr 1fr 1fr;
+        align-content        : center;
+
+        .vertialSeparator {
+          height          : 100%;
+          width           : 2px;
+          background-color: #dbdbdb;
+          grid-area       : 1/1/max/1;
+          justify-self    : center;
+        }
+      }
+    }
+  }
+
+  .editor {
+    flex    : 1;
+    position: relative;
+
+    .clipboardHover {
+      position: absolute;
+      top     : 0;
+      left    : 0;
+      width   : 100%;
+      height  : 100%;
+      z-index : 3;
+
+      &:hover {
+        background-color: #5e5e5e3b;
+        cursor          : copy;
+
+        &::after {
+          content            : '';
+          background-image   : url('../../images/content_copy.svg');
+          top                : 0;
+          left               : 0;
+          height             : 100%;
+          width              : 100%;
+          display            : flex;
+          background-repeat  : no-repeat;
+          align-items        : center;
+          background-position: center;
+          background-size    : 12vmin
+        }
+      }
+    }
+  }
+
+}

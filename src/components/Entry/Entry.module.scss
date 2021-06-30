@@ -1,0 +1,16 @@
+@import '../../styles/flex.scss';
+
+.container {
+    @include flex;
+    @include flex-align-items-center;
+    @include flex-justify-content-space-between;
+    gap            : 10px;
+
+
+    input[type=text] {
+        margin : 0;
+        padding: 0;
+        border : none;
+        outline: none;
+    }
+}
