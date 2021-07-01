@@ -1,20 +1,20 @@
 {
-  "short_name": "Music Player",
-  "name": "xbotpc's Music Player",
+  "short_name": "pckgr",
+  "name": "xbotpc's package.json builder",
   "icons": [
     {
-      "src": "audiotrack.svg",
+      "src": "logo.png",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/svg"
+      "type": "image/png"
     },
     {
-      "src": "audiotrack.svg",
-      "type": "image/svg",
+      "src": "logo.png",
+      "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "audiotrack.svg",
-      "type": "image/svg",
+      "src": "logo.png",
+      "type": "image/png",
       "sizes": "512x512"
     }
   ],
