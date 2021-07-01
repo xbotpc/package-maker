@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-extra-non-null-assertion */
 import cx from 'classnames';
-import { MouseEvent, useState } from 'react';
+import { FocusEvent, MouseEvent, useState } from 'react';
 import ReactJson from 'react-json-view';
 import { Provider } from 'react-redux';
 import Button from '../../components/Button/Button';
@@ -243,8 +243,9 @@ function App(): JSX.Element {
     if (parentID !== undefined) {
       const parentIndex = formCreatorObject.findIndex(x => x.id === parentID);
       const detailIndex = formCreatorObject[parentIndex]?.details?.findIndex(x => x.id === id);
-      if (detailIndex !== undefined) {
-        formCreatorObject[parentIndex].details[detailIndex].value = value;
+      if (detailIndex !== undefined && parentIndex !== undefined) {
+        const _details = formCreatorObject[parentIndex]?.details || [];
+        _details[detailIndex].value = value;
       }
       _JSON[parentID][id] = value;
     } else {
@@ -259,8 +260,8 @@ function App(): JSX.Element {
     navigator.clipboard.writeText(JSON.stringify(finalJSON));
   }
 
-  const renderForm = (data: Array<FormCreator | Details>, parentID?: string) => {
-    return data.map(({ id, type, displayName, details, showDetails, value: _value }) => {
+  const renderForm = (data: Array<any>, parentID?: string) => {
+    return data.map(({ id, type, displayName, details = [], showDetails = false, value: _value }) => {
       const form: Array<JSX.Element | null> = [];
       const key = `${id}-${parentID || 'parent'}`;
       if (type === 'drawer') {
